@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crocodile Web App</title>
+    <style>
+        body {
+            background-color: rgb(255, 255, 255);
+            font-family: 'Times New Roman', Times, serif;
+            color: rgb(6, 30, 103);
+            /* margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; */
+        }
+        .navi {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px;
+        }
+
+        /* .navi a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: rgb(6, 30, 103);
+        } */
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: rgb(208, 245, 223);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 300px;
+            /* margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; */
+        }
+        #generate {
+            padding: 10px 20px;
+            background-color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        footer p {
+            font-size: 12px;
+            justify-content: center;
+            align-items: center;
+            padding: 1em;
+        }
+        .content-wrapper {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px;
+            flex-wrap: wrap;
+            /* padding-top: 20px;
+            align-items: flex-start; */
+        }
+        /* #fact-selection {
+            max-width: 300px;
+        } */
+        /* .photo-gallery {
+            text-align: left;
+        } */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 400px;
+            gap: 10px;
+        }
+        .gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body>
+    <p class="navi header">
+        <a href="../index.html" id="top">Resume</a> &nbsp; |&nbsp; 
+        <a href="/scratch page and web app/scratch.html">Crocodiles</a> &nbsp; |&nbsp; 
+        <a href="#">Crocodile Web App</a>
+    </p>
+    <div class="content-wrapper">
+        <div class="container">
+            <h1>Crocodile Fun Fact Generator</h1>
+            <section id="fact-selection">
+                <p id="fact">Click here to learn a fun crocodile fact!</p>
+                <button id="generate">Fun Crocodile Fact!</button>
+            </section>
+        </div> 
+        
+        <div class="gallery">
+            <img src="../scratch page and web app/images/crocodile1.png" alt="Croc 1">
+            <img src="../scratch page and web app/images/crocodile2.png" alt="Croc 2">
+            <img src="../scratch page and web app/images/croc3.png" alt="Croc 3">
+            <img src="../scratch page and web app/images/croc4.png" alt="Croc 4">
+            <img src="../scratch page and web app/images/croc5.png" alt="Croc 5">
+            <img src="../scratch page and web app/images/croc6.png" alt="Croc 6">
+            <img src="../scratch page and web app/images/croc7.png" alt="Croc 7">
+            <img src="../scratch page and web app/images/croc8.png" alt="Croc 8">
+        </div>
+    </div>
+        
+    <p style="text-align: center;">
+        <a href="#top" class="navi">Return To Top</a>
+    </p>
+            
+    <footer>
+        <p>&copy; FunCrocodileFactz</p>
+    </footer>
+
+    <script>
+       document.addEventListener("DOMContentLoaded", function() {
+            const facts = [
+                "Crocodiles have been around for about 200 million years.",
+                "The saltwater crocodile is the largest living reptile.",
+                "Crocodiles can hold their breath underwater for over an hour.",
+                "They have the strongest bite force of any animal in the world.",
+                "Crocodiles eat stones to help them digest food.",
+                "A group of crocodiles is called a 'bask' when on land and a 'float' when in water.",
+                "Crocodiles can go months without eating.",
+                "Their eyes, ears, and nostrils are located on top of their head for stealth.",
+                "Crocodiles swallow their prey whole or in large chunks.",
+                "They are excellent swimmers and can reach up to 20 mph in water.",
+                "Crocodiles can live up to 100 years.",
+                "They replace their teeth over 40 times in a lifetime.",
+                "Crocodiles can’t sweat – they open their mouths to cool off.",
+                "They have special heart valves that let them stay underwater longer.",
+                "Some crocodiles can climb trees.",
+                "They have a four-chambered heart, like birds and mammals.",
+                "Crocodiles use the sun to regulate their body temperature.",
+                "They lay their eggs in nests made of vegetation or sand.",
+                "Mother crocodiles protect their young after they hatch.",
+                "Baby crocodiles make noises before they hatch.",
+                "Their scales are made of keratin, the same protein as human nails.",
+                "Crocodiles have excellent night vision.",
+                "They can detect tiny vibrations in water to find prey.",
+                "Crocodiles can leap from the water to catch birds.",
+                "They hiss loudly when threatened.",
+                "Crocodiles are more closely related to birds than to lizards.",
+                "Some crocodile species are endangered due to habitat loss.",
+                "They can grow up to 23 feet long.",
+                "Crocodiles can weigh over 2,000 pounds.",
+                "They have a third eyelid, called a nictitating membrane, for underwater vision.",
+                "Crocodile skin is highly valued for leather.",
+                "They use their tails for swimming and defense.",
+                "Crocodiles often sunbathe to warm up.",
+                "They are ambush predators and wait silently for prey.",
+                "Crocodiles can communicate with grunts, hisses, and growls.",
+                "They play a vital role in their ecosystems.",
+                "The gharial is a fish-eating crocodile with a long, thin snout.",
+                "Crocodiles rarely get infections thanks to strong immune systems.",
+                "Some ancient crocodile ancestors walked on two legs.",
+                "They can survive in both saltwater and freshwater environments.",
+                "Crocodile mothers can carry their babies in their mouths.",
+                "They have taste buds, but their main sense for hunting is smell and vibration.",
+                "The Nile crocodile is known for being aggressive.",
+                "Some crocodiles can survive freezing temperatures for short periods.",
+                "They can stay completely still for hours to avoid detection.",
+                "They have ears covered by flaps that close underwater.",
+                "Crocodiles don’t chew — they tear and gulp.",
+                "Their jaws can snap shut with incredible speed.",
+                "Crocodile blood may have antibiotic properties.",
+                "They can regrow lost teeth throughout their lives.",
+                "They often bask with their mouths open to thermoregulate.",
+                "Crocodiles can digest bones thanks to strong stomach acids.",
+                "They often share basking spots but still remain territorial.",
+                "The largest crocodile in captivity was over 20 feet long.",
+                "Crocodiles sometimes hunt in groups.",
+                "They've been known to use tools, like sticks, to lure birds.",
+                "Crocodiles can detect the scent of blood from long distances.",
+                "Their bodies are built for stealth and ambush.",
+                "Some crocodiles leap from the water vertically.",
+                "Crocodiles are often confused with alligators.",
+                "Unlike alligators, crocodiles have V-shaped snouts.",
+                "They are cold-blooded and rely on the environment for heat.",
+                "Crocodiles are found on every continent except Europe and Antarctica.",
+                "They can move surprisingly fast on land in short bursts.",
+                "Their armored skin protects them from injury.",
+                "Crocodiles evolved alongside dinosaurs.",
+                "They have a strong homing instinct and return to nesting sites.",
+                "Crocodiles can see well even in murky water.",
+                "Their tail makes up nearly half their body length.",
+                "They use their tails to herd fish into shallow waters.",
+                "Some species are nocturnal hunters.",
+                "Crocodiles can hiss and bellow to warn others.",
+                "Young crocodiles eat insects, small fish, and amphibians.",
+                "They are territorial and will fight over nesting grounds.",
+                "Crocodiles often sleep with one eye open.",
+                "They use body language like head-slapping as signals.",
+                "Their bite pressure can exceed 3,000 psi.",
+                "Crocodiles rarely blink – they use the third eyelid instead.",
+                "The Cuban crocodile is known for jumping and aggression.",
+                "They’ve been observed playing with objects and each other.",
+                "Some crocodiles grow faster than others depending on diet and climate.",
+                "Crocodiles can live in brackish water near river mouths.",
+                "They help control fish populations in the wild.",
+                "Crocodiles occasionally consume rocks (gastroliths) to help balance or digest food.",
+                "Crocodiles can swim using just their tail, keeping limbs tucked in.",
+                "They have a special valve in their throat to keep water out.",
+                "Crocodile fossils date back to the Mesozoic Era.",
+                "They can be trained in captivity to respond to cues.",
+                "Baby crocodiles start to growl even before they hatch.",
+                "They play a part in nutrient cycling in their habitats.",
+                "Crocodiles can go into a dormant state during dry seasons.",
+                "Some species build elaborate nesting mounds.",
+                "Their back scales contain blood vessels to absorb heat.",
+                "Crocodiles don't have lips – their teeth are always visible.",
+                "Their stomachs contain stones that help grind up food.",
+                "Crocodiles are featured in mythology across many cultures.",
+                "They can sleep submerged, surfacing occasionally to breathe.",
+                "Crocodile eyes glow red at night when light reflects off them.",
+                "They use low-frequency sounds to communicate over long distances.",
+                "Crocodiles show surprising intelligence for reptiles.",
+                "Some species travel long distances between habitats.",
+                "Crocodiles sometimes steal nests from each other.",
+                "They are apex predators with few natural enemies.",
+                "Crocodiles can be surprisingly agile in short sprints on land.",
+                "They often remain motionless to blend into their surroundings.",
+                "Crocodiles have been known to live over 70 years in the wild."
+            ];
+
+            const generate = document.getElementById("generate");
+            const fact = document.getElementById("fact");
+
+            generate.addEventListener("click", function() {
+                const randomIndex = Math.floor(Math.random() * facts.length);
+                fact.textContent = facts[randomIndex];
+            });
+       });
+    </script>
+
+</body>
+</html>
